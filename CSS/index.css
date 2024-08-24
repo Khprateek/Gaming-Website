@@ -1,0 +1,380 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Audiowide', sans-serif;
+    /* font-family: 'Press Start 2P', cursive; */
+}
+h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+p {
+    font-size: 1.2em;
+}
+body{
+    min-height: 100vh;
+    font-family: 'Audiowide', sans-serif;
+    background-color: #090913;
+    /* font-family: 'Press Start 2P', cursive; */
+    overflow: hidden;
+}
+a{
+    text-decoration: none;
+    color: red;
+    transition: 0.3s;
+}
+a:hover {
+    text-decoration: node;
+    color : rgba(53, 53, 225, 0.9);
+}
+
+.navbar{
+    width: 100%;
+    height: 10vh;
+    top: 0;
+    left: 0;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(8px);
+    padding: 12px 10.5px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, .03);
+    z-index: 3;
+    border-bottom: 0.1px solid red;
+}
+.logo {
+  width: 60px; /* Adjust size as needed */
+  height: 60px;
+  border-radius: 50%;
+  animation: rotate 5s linear infinite;
+}
+.logo img{
+    height: 80%;
+    width: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+.nav-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@keyframes rotate {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}
+nav{
+    margin: 0 5%;
+    width: 30%;
+    max-width: 40%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav a{
+    text-decoration: none;
+}
+/* ------------make the hexagon glowing tabs ------------------- */
+#hex-container {
+    left: -50px;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1; /* Optional, for better visibility */
+}
+.hex {
+    position: absolute;
+    width: 82px; /* Width of each hexagon */
+    height: 87px; /* Height of each hexagon */
+    background-color: #181a27;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    transition: box-shadow 0.3s;
+}
+.hex:hover { /* Increase background opacity on hover */
+    box-shadow: 0 0 40px rgba(0, 0, 225, 0.9); /* Large glowing effect on hover */
+}
+
+ /* ----------------background glow------------ */
+ .glow {
+    z-index: 1;
+    position: absolute;
+    pointer-events: none;
+    border-radius: 50%;
+    background: rgba(0, 0, 255, 0.8); /* Neon cyan color with transparency */
+    box-shadow: 0 0 10px rgba(0, 0, 255, 0.9), 0 0 60px rgba(0, 0, 255, 0.6), 0 0 90px rgba(0, 0, 255, 0.4); /* Multiple layers for a strong glow */
+    width: 100px; /* Default size of the glow */
+    height: 100px; /* Default size of the glow */
+    transform: translate(-50%, -50%); /* Center the glow on the cursor */
+    transition: width 0.2s ease, height 0.2s ease; /* Smooth size transition */
+}
+
+.glow.expanded {
+    width: 150px; /* Expanded size of the glow */
+    height: 150px; /* Expanded size of the glow */
+    box-shadow: 0 0 50px rgba(0, 0, 255, 0.9), 0 0 100px rgba(0, 0, 255, 0.8), 0 0 150px rgba(0, 0, 255, 0.7), 0 0 200px rgba(0, 0, 255, 0.9), 0 0 250px rgba(0, 0, 255, 0.9), 0 0 300px rgba(0, 0, 255, 0.9), 
+    0 0 600px rgba(0,0,225, 0.9),0 0 600px rgba(0,0,225, 0.9); /* Expanded glow effect */
+}
+
+  /* -------------Button------------ */
+/* From Uiverse.io by Navarog21 */ 
+button {
+    position: relative;
+    width: 11em;
+    height: 4em;
+    outline: none;
+    transition: 0.1s;
+    background-color: transparent;
+    border: none;
+    font-size: 13px;
+    font-weight: bold;
+    color: #ddebf0;
+  }
+  
+  #clip {
+    --color: #2761c3;
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    border: 5px double var(--color);
+    box-shadow: inset 0px 0px 15px #195480;
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+    -webkit-clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+  }
+  
+  .arrow {
+    position: absolute;
+    transition: 0.2s;
+    background-color: #2761c3;
+    top: 35%;
+    width: 11%;
+    height: 30%;
+  }
+  
+  #leftArrow {
+    left: -13.5%;
+    clip-path: polygon(100% 0, 100% 100%, 0 50%);
+    -webkit-clip-path: polygon(100% 0, 100% 100%, 0 50%);
+  }
+  
+  #rightArrow {
+    clip-path: polygon(100% 49%, 0 0, 0 100%);
+    -webkit-clip-path: polygon(100% 49%, 0 0, 0 100%);
+    left: 102%;
+  }
+  
+  button:hover #rightArrow {
+    background-color: #27c39f;
+    left: -15%;
+    animation: 0.6s ease-in-out both infinite alternate rightArrow8;
+  }
+  
+  button:hover #leftArrow {
+    background-color: #27c39f;
+    left: 103%;
+    animation: 0.6s ease-in-out both infinite alternate leftArrow8;
+  }
+  
+  .corner {
+    position: absolute;
+    width: 4em;
+    height: 4em;
+    background-color: #2761c3;
+    box-shadow: inset 1px 1px 8px #2781c3;
+    transform: scale(1) rotate(45deg);
+    transition: 0.2s;
+  }
+  
+  #rightTop {
+    top: -1.98em;
+    left: 91%;
+  }
+  
+  #leftTop {
+    top: -1.96em;
+    left: -3.0em;
+  }
+  
+  #leftBottom {
+    top: 2.10em;
+    left: -2.15em;
+  }
+  
+  #rightBottom {
+    top: 45%;
+    left: 88%;
+  }
+  
+  button:hover #leftTop {
+    animation: 0.1s ease-in-out 0.05s both changeColor8,
+    0.2s linear 0.4s both lightEffect8;
+  }
+  
+  button:hover #rightTop {
+    animation: 0.1s ease-in-out 0.15s both changeColor8,
+    0.2s linear 0.4s both lightEffect8;
+  }
+  
+  button:hover #rightBottom {
+    animation: 0.1s ease-in-out 0.25s both changeColor8,
+    0.2s linear 0.4s both lightEffect8;
+  }
+  
+  button:hover #leftBottom {
+    animation: 0.1s ease-in-out 0.35s both changeColor8,
+    0.2s linear 0.4s both lightEffect8;
+  }
+  
+  button:hover .corner {
+    transform: scale(1.25) rotate(45deg);
+  }
+  
+  button:hover #clip {
+    animation: 0.2s ease-in-out 0.55s both greenLight8;
+    --color: #27c39f;
+  }
+  
+  @keyframes changeColor8 {
+    from {
+      background-color: #2781c3;
+    }
+  
+    to {
+      background-color: #27c39f;
+    }
+  }
+  
+  @keyframes lightEffect8 {
+    from {
+      box-shadow: 1px 1px 5px #27c39f;
+    }
+  
+    to {
+      box-shadow: 0 0 2px #27c39f;
+    }
+  }
+  
+  @keyframes greenLight8 {
+    from {
+    }
+  
+    to {
+      box-shadow: inset 0px 0px 32px #27c39f;
+    }
+  }
+  
+  @keyframes leftArrow8 {
+    from {
+      transform: translate(0px);
+    }
+  
+    to {
+      transform: translateX(10px);
+    }
+  }
+  
+  @keyframes rightArrow8 {
+    from {
+      transform: translate(0px);
+    }
+  
+    to {
+      transform: translateX(-10px);
+    }
+  }
+
+  .glowButton {
+    bottom: 20px; /* Distance from the bottom of the viewport */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Offset to truly center */
+    z-index: 1000; /* Ensure it's above other content */
+  }
+  
+  .glowButton a {
+    text-decoration: none; /* Remove default underline from anchor */
+  }
+  
+.homepg{
+    left: 0;
+    top: -100vh;
+    background-color: transparent;
+    position: relative;
+    z-index: 100;
+    display: flex;
+    height: 100vh;
+    max-height: 100%;
+    width: 100vw;
+    justify-content: center;
+}
+.txtcol{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    max-width: 700px;
+    align-items: center;
+    justify-content: center;
+}
+.maintxt{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-left: 15%;
+}
+.maintxt h1{
+    color: rgb(242, 74, 59);
+    font-size: 3rem;
+    line-height: 3.1rem;
+    margin: 1% 0;
+}
+.maintxt h2{
+  color: #27c39f;
+    font-size: 3rem;
+    line-height: 3.1rem;
+    margin: 2% 0;
+}
+.maintxt h3{
+  color: #27c39f;
+    font-size: 2rem;
+    padding-bottom: 1%;
+}
+.maintxt p{
+  color: #27c39f;
+    line-height: 1rem;
+    margin: 2% 0;
+}
+.btn{
+    background-image: url('Images/button1.png');
+    background-color: transparent;
+    border: 0;
+    background-repeat: no-repeat;
+    color: white;
+    padding: 5% 21% 5% 21%;
+    margin: 2% 0;
+    transition: background 0.3s;
+}
+.btn:hover{
+    background-image: url('Images/button2.png');
+    color: white;
+}
+.imcol{
+    display: flex;
+    width: 50%;
+    max-width: 50%;
+    align-items: center;
+    justify-content: center;
+}
+.imcol img{
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
+    margin: auto;
+}
+  
