@@ -21,7 +21,7 @@ body{
 }
 a{
     text-decoration: none;
-    color: red;
+    color: rgb(242, 74, 59);
     transition: 0.3s;
 }
 a:hover {
@@ -42,7 +42,7 @@ a:hover {
     padding: 12px 10.5px;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, .03);
     z-index: 3;
-    border-bottom: 0.1px solid red;
+    border-bottom: 0.1px solid rgb(242, 74, 59);
 }
 .logo {
   width: 60px; /* Adjust size as needed */
