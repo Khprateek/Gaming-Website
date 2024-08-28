@@ -1,10 +1,10 @@
 const hexContainer = document.getElementById('hex-container');
-const hexSize = 85; // Size of each hexagon
-const hexWidth = hexSize; // Width of each hexagon
-const hexHeight = Math.sqrt(3) / 2 * hexSize; // Height of each hexagon
-const bumpRadius = 100; // Radius for bump effect in pixels
-const horizontalSpacing = 5; // Horizontal space between hexagons in pixels
-const verticalSpacing = 0; // Vertical space between rows of hexagons in pixels
+const hexSize = 85; 
+const hexWidth = hexSize; 
+const hexHeight = Math.sqrt(3) / 2 * hexSize; 
+const bumpRadius = 100; 
+const horizontalSpacing = 5; 
+const verticalSpacing = 0; 
 
 function createHexagons() {
     const containerWidth = window.innerWidth;
