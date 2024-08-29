@@ -14,7 +14,6 @@ p {
     font-size: 1.2em;
 }
 body{
-    min-height: 100vh;
     width: 100vw;
     font-family: 'Audiowide', sans-serif;
     background-color: #090913;
@@ -88,6 +87,7 @@ nav a{
 #hex-container {
     left: -50px;
     position: relative;
+    /* overflow: hidden; */
     width: 100vw;
     height: 100vh;
     z-index: 1;
@@ -126,8 +126,8 @@ nav a{
 }
  /* ----------------start button ---------------- */
 .start-button{
-  width: 82%;
-  margin-left: 18%;
+  width: 85%;
+  margin-left: 15%;
   margin-top: 2%;
   flex: none;
 }
@@ -155,39 +155,6 @@ nav a{
   box-shadow: inset 0px 0px 15px #195480;
   clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
   -webkit-clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
-}
-
-.arrow {
-  position: absolute;
-  transition: 0.2s;
-  background-color: #2761c3;
-  top: 35%;
-  width: 11%;
-  height: 30%;
-}
-
-#leftArrow {
-  left: -13.5%;
-  clip-path: polygon(100% 0, 100% 100%, 0 50%);
-  -webkit-clip-path: polygon(100% 0, 100% 100%, 0 50%);
-}
-
-#rightArrow {
-  clip-path: polygon(100% 49%, 0 0, 0 100%);
-  -webkit-clip-path: polygon(100% 49%, 0 0, 0 100%);
-  left: 102%;
-}
-
-button:hover #rightArrow {
-  background-color: #27c39f;
-  left: -15%;
-  animation: 0.6s ease-in-out both infinite alternate rightArrow8;
-}
-
-button:hover #leftArrow {
-  background-color: #27c39f;
-  left: 103%;
-  animation: 0.6s ease-in-out both infinite alternate leftArrow8;
 }
 
 .corner {
@@ -245,7 +212,7 @@ button:hover .corner {
 }
 
 button:hover #clip {
-  animation: 0.2s ease-in-out 0.55s both greenLight8;
+  animation: 0.2s ease-in-out 0.1s both greenLight8;
   --color: #27c39f;
 }
 
@@ -298,26 +265,15 @@ button:hover #clip {
   }
 }
 
-.glowButton {
-  bottom: 20px; /* Distance from the bottom of the viewport */
-  left: 50%; /* Center horizontally */
-  transform: translateX(-50%); /* Offset to truly center */
-  z-index: 1000; /* Ensure it's above other content */
-}
-
-.glowButton a {
-  text-decoration: none; /* Remove default underline from anchor */
-}
-
 
 
 /* -------------- start-button end ---------------- */
 .homepg{
+  z-index: 100;
     left: 0;
-    top: -100vh;
+    overflow: hidden;
     background-color: transparent;
     position: relative;
-    z-index: 100;
     display: flex;
     height: 100vh;
     max-height: 100%;
@@ -387,4 +343,58 @@ button:hover #clip {
     max-height: 100%;
     margin: auto;
 }
+ /* ------------------ Header ---------------- */
   
+ .header{
+  margin-top: 5%;
+  margin-bottom: 2%;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 20vh;
+  color: rgb(242, 74, 59);
+ }
+ .header h1{
+  font-size: 7.5rem;
+  color: #27c39f;
+ }
+
+  /* ---------------------------- Game cards ------------------ */
+ .game-area{
+  z-index: 2;
+  width: 100vw;
+  display: flex;
+  height: max-content;
+ } 
+  .side{
+    position: relative;
+    width: 30%;
+    height: 100%;
+    background-color: blue;
+
+  }
+  .game-cards{
+    width: 60%;
+    background-color: #090913;
+    height: 100vh;
+    display: flex;
+    gap: 6%;
+  }
+  .content{
+    height: 70%;
+    width: 48%;
+    background-color: red;
+  }
+  .gamei{
+    height: 70%;
+    width: 48%;
+    background-color: transparent;
+  }
+  .gamei img{
+    width: 100%;
+    height: auto;
+    display: block;
+  }
