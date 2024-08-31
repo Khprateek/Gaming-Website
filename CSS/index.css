@@ -6,6 +6,12 @@
     /* border: 1px solid red; */
     /* font-family: 'Press Start 2P', cursive; */
 }
+h1, h2, h3 {
+  font-family: 'Audiowide', cursive;
+}
+.special-text {
+  font-family: 'Orbitron', sans-serif;
+}
 h1 {
     font-size: 2em;
     margin-bottom: 10px;
@@ -15,13 +21,15 @@ p {
 }
 body{
     width: 100vw;
-    font-family: 'Audiowide', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     background-color: #090913;
     /* font-family: 'Press Start 2P', cursive; */
     overflow-x: hidden;
     overflow-y: scroll;
+    color: #F0F0F0;
 }
 a{
+    width: max-content;
     text-decoration: none;
     color: rgb(242, 74, 59);
     transition: 0.3s;
@@ -131,7 +139,7 @@ nav a{
   margin-top: 2%;
   flex: none;
 }
- button {
+ .btn1 {
   position: relative;
   width: 11em;
   height: 4em;
@@ -145,7 +153,7 @@ nav a{
 }
 
 #clip {
-  --color: #2761c3;
+  --color: #27c39f;
   position: absolute;
   top: 0;
   overflow: hidden;
@@ -161,8 +169,8 @@ nav a{
   position: absolute;
   width: 4em;
   height: 4em;
-  background-color: #2761c3;
-  box-shadow: inset 1px 1px 8px #2781c3;
+  background-color: #27c39f;
+  box-shadow: inset 1px 1px 8px #27c39f;
   transform: scale(1) rotate(45deg);
   transition: 0.2s;
 }
@@ -213,26 +221,25 @@ button:hover .corner {
 
 button:hover #clip {
   animation: 0.2s ease-in-out 0.1s both greenLight8;
-  --color: #27c39f;
+  --color: #2781c3;
 }
-
 @keyframes changeColor8 {
   from {
     background-color: #2781c3;
   }
 
   to {
-    background-color: #27c39f;
+    background-color: #2761c3;
   }
 }
 
 @keyframes lightEffect8 {
   from {
-    box-shadow: 1px 1px 5px #27c39f;
+    box-shadow: 1px 1px 5px #2761c3;
   }
 
   to {
-    box-shadow: 0 0 2px #27c39f;
+    box-shadow: 0 0 2px #2761c3;
   }
 }
 
@@ -241,7 +248,7 @@ button:hover #clip {
   }
 
   to {
-    box-shadow: inset 0px 0px 32px #27c39f;
+    box-shadow: inset 0px 0px 32px #2761c3;
   }
 }
 
@@ -355,7 +362,6 @@ button:hover #clip {
   align-items: center;
   width: 100vw;
   height: 20vh;
-  color: rgb(242, 74, 59);
  }
  .header h1{
   font-size: 7.5rem;
@@ -373,7 +379,7 @@ button:hover #clip {
     position: relative;
     width: 30%;
     height: 100%;
-    background-color: blue;
+    background-color: blueviolet;
 
   }
   .game-cards{
@@ -386,15 +392,135 @@ button:hover #clip {
   .content{
     height: 70%;
     width: 48%;
-    background-color: red;
+    gap: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
   }
   .gamei{
     height: 70%;
     width: 48%;
-    background-color: transparent;
+    position: relative;
   }
   .gamei img{
-    width: 100%;
-    height: auto;
+    height: 100%;
+    width: auto;
     display: block;
   }
+  .gamei::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, rgba(9, 9, 19, 0.8), rgba(9, 9, 19, 0));
+    pointer-events: none;
+}
+.content h2{
+  color: blueviolet;
+}
+.content h3{
+  color: rgb(242, 74, 59);
+}
+.content p{
+  color: #27c39f;
+}
+
+.btn2 {
+  --border-color: linear-gradient(-45deg, #ffae00, #7e03aa, #00fffb);
+  --border-width: 0.125em;
+  --curve-size: 0.5em;
+  --blur: 30px;
+  --bg: #080312;
+  --color: #afffff;
+  color: var(--color);
+  cursor: pointer;
+  /* use position: relative; so that BG is only for .btn */
+  position: relative;
+  isolation: isolate;
+  display: inline-grid;
+  place-content: center;
+  padding: 0.5em 1.5em;
+  font-size: 17px;
+  border: 0;
+  text-transform: uppercase;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.6);
+  clip-path: polygon(
+    /* Top-left */ 0% var(--curve-size),
+    var(--curve-size) 0,
+    /* top-right */ 100% 0,
+    100% calc(100% - var(--curve-size)),
+    /* bottom-right 1 */ calc(100% - var(--curve-size))100%,
+    /* bottom-right 2 */ 0 100%
+  );
+  transition: color 250ms;
+}
+.btn2::after,
+.btn2::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.btn2::before {
+  background: var(--border-color);
+  background-size: 300% 300%;
+  animation: move-bg7234 5s ease infinite;
+  z-index: -2;
+}
+
+@keyframes move-bg7234 {
+  0% {
+    background-position: 31% 0%;
+  }
+
+  50% {
+    background-position: 70% 100%;
+  }
+
+  100% {
+    background-position: 31% 0%;
+  }
+}
+
+.btn2::after {
+  background: var(--bg);
+  z-index: -1;
+  clip-path: polygon(
+    /* Top-left */ var(--border-width)
+      calc(var(--curve-size) + var(--border-width) * 0.5),
+    calc(var(--curve-size) + var(--border-width) * 0.5) var(--border-width),
+    /* top-right */ calc(100% - var(--border-width)) var(--border-width),
+    calc(100% - var(--border-width))
+      calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+    /* bottom-right 1 */
+      calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+      calc(100% - var(--border-width)),
+    /* bottom-right 2 */ var(--border-width) calc(100% - var(--border-width))
+  );
+  transition: clip-path 500ms;
+}
+
+.btn2:where(:hover, :focus)::after {
+  clip-path: polygon(
+    /* Top-left */ calc(100% - var(--border-width))
+      calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+    calc(100% - var(--border-width)) var(--border-width),
+    /* top-right */ calc(100% - var(--border-width)) var(--border-width),
+    calc(100% - var(--border-width))
+      calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+    /* bottom-right 1 */
+      calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+      calc(100% - var(--border-width)),
+    /* bottom-right 2 */
+      calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+      calc(100% - var(--border-width))
+  );
+  transition: 200ms;
+}
+
+.btn2:where(:hover, :focus) {
+  color: #fff;
+}

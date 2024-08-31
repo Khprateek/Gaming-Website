@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link
-        href="https://fonts.googleapis.com/css2?family=Audiowide&family=Bungee&family=Exo+2&family=Montserrat:wght@400;700&family=Orbitron:wght@400;700&family=Press+Start+2P&family=Rajdhani:wght@400;700&family=VT323&display=swap"
-        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Audiowide&family=Montserrat:wght@400;700&family=Orbitron:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Audiowide&family=Montserrat:wght@400;700&family=Orbitron:wght@400;700&display=swap" media="print" onload="this.media='all'">
         <link rel="stylesheet" href="../CSS/index.css">
         <title>Play ground</title>
     </head>
@@ -38,7 +39,7 @@
                     <div class="start-button">
                         <a href="../HTML/games.html">
                             <div class="btn-pos">
-                                <button>
+                                <button class="btn1">
                                     P L A Y
                                     <div id="clip">
                                         <div id="leftTop" class="corner"></div>
@@ -67,10 +68,22 @@
         <div class="game-cards">
     
             <div class="content">
-    
+                <h2>Play the Ultimate JavaScript Snake Game!</h2>
+                <h3>Features : </h3>
+                <p>Classic gameplay with smooth javascript implementation <br>Dynamic difficulty and customizable themes. </p>
+                <h3>How to play : </h3>
+                <p>Use the arrow keys to move the snake.
+                <br> Avoid hitting the walls or the snake's own body.
+                <br> Collect food to grow longer.</p>
+                <h3>Get Started : </h3>
+                <a href="../HTML/games.html">
+                    <button class="btn2">Play Now</button>
+                </a><a href="../HTML/games.html">
+                    <button class="btn2">Play Now</button>
+                </a>
             </div>
             <div class="gamei">
-                <img src="../Images/snake2.jpg" alt="Image not found">
+                <img src="../Images/snake1.jpg" alt="Image not found" loading="lazy">
             </div>
         </div>
 
