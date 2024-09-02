@@ -132,146 +132,6 @@ nav a{
     box-shadow: 0 0 50px rgba(0, 0, 255, 0.9), 0 0 100px rgba(0, 0, 255, 0.8), 0 0 150px rgba(0, 0, 255, 0.7), 0 0 200px rgba(0, 0, 255, 0.9), 0 0 250px rgba(0, 0, 255, 0.9), 0 0 300px rgba(0, 0, 255, 0.9), 
     0 0 600px rgba(0,0,225, 0.9),0 0 600px rgba(0,0,225, 0.9); /* Expanded glow effect */
 }
- /* ----------------start button ---------------- */
-.start-button{
-  width: 85%;
-  margin-left: 15%;
-  margin-top: 2%;
-  flex: none;
-}
- .btn1 {
-  position: relative;
-  width: 11em;
-  height: 4em;
-  outline: none;
-  transition: 0.1s;
-  background-color: transparent;
-  border: none;
-  font-size: 13px;
-  font-weight: bold;
-  color: #ddebf0;
-}
-
-#clip {
-  --color: #27c39f;
-  position: absolute;
-  top: 0;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-  border: 5px double var(--color);
-  box-shadow: inset 0px 0px 15px #195480;
-  clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
-  -webkit-clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
-}
-
-.corner {
-  position: absolute;
-  width: 4em;
-  height: 4em;
-  background-color: #27c39f;
-  box-shadow: inset 1px 1px 8px #27c39f;
-  transform: scale(1) rotate(45deg);
-  transition: 0.2s;
-}
-
-#rightTop {
-  top: -1.98em;
-  left: 91%;
-}
-
-#leftTop {
-  top: -1.96em;
-  left: -3.0em;
-}
-
-#leftBottom {
-  top: 2.10em;
-  left: -2.15em;
-}
-
-#rightBottom {
-  top: 45%;
-  left: 88%;
-}
-
-button:hover #leftTop {
-  animation: 0.1s ease-in-out 0.05s both changeColor8,
-  0.2s linear 0.4s both lightEffect8;
-}
-
-button:hover #rightTop {
-  animation: 0.1s ease-in-out 0.15s both changeColor8,
-  0.2s linear 0.4s both lightEffect8;
-}
-
-button:hover #rightBottom {
-  animation: 0.1s ease-in-out 0.25s both changeColor8,
-  0.2s linear 0.4s both lightEffect8;
-}
-
-button:hover #leftBottom {
-  animation: 0.1s ease-in-out 0.35s both changeColor8,
-  0.2s linear 0.4s both lightEffect8;
-}
-
-button:hover .corner {
-  transform: scale(1.25) rotate(45deg);
-}
-
-button:hover #clip {
-  animation: 0.2s ease-in-out 0.1s both greenLight8;
-  --color: #2781c3;
-}
-@keyframes changeColor8 {
-  from {
-    background-color: #2781c3;
-  }
-
-  to {
-    background-color: #2761c3;
-  }
-}
-
-@keyframes lightEffect8 {
-  from {
-    box-shadow: 1px 1px 5px #2761c3;
-  }
-
-  to {
-    box-shadow: 0 0 2px #2761c3;
-  }
-}
-
-@keyframes greenLight8 {
-  from {
-  }
-
-  to {
-    box-shadow: inset 0px 0px 32px #2761c3;
-  }
-}
-
-@keyframes leftArrow8 {
-  from {
-    transform: translate(0px);
-  }
-
-  to {
-    transform: translateX(10px);
-  }
-}
-
-@keyframes rightArrow8 {
-  from {
-    transform: translate(0px);
-  }
-
-  to {
-    transform: translateX(-10px);
-  }
-}
-
 
 
 /* -------------- start-button end ---------------- */
@@ -300,6 +160,12 @@ button:hover #clip {
     align-items: center;
     flex-wrap: wrap;
     margin-left: 15%;
+}
+.buttondiv{
+  width: 85%;
+  display: flex;
+  align-items: center;
+  margin-left: 15%;
 }
 .maintxt h1{
     color: rgb(242, 74, 59);
@@ -372,22 +238,52 @@ button:hover #clip {
  .game-area{
   z-index: 2;
   width: 100vw;
-  display: flex;
   height: max-content;
+  display: flex;
+  flex-direction: row;
  } 
   .side{
-    position: relative;
-    width: 30%;
-    height: 100%;
-    background-color: blueviolet;
-
+    margin-top: 5%;
+    height: 50vh;
+    position: sticky;
+    position: -webkit-sticky; /* For Safari */
+    top: 0;
+    left: 0;
+    width: 30vw;
+    height: max-content;
+  }
+  .stick-box{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+    padding: 6%;
+    margin-top: 20%;
+    border: 1px solid white;
   }
   .game-cards{
-    width: 60%;
+    width: 70%;
     background-color: #090913;
-    height: 100vh;
+    height: max-content;
     display: flex;
-    gap: 6%;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+  .game-card{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .line{
+    width: 70%;
+    z-index: 100;
+    background-color:white;
+    opacity: .35;
+    height: .5px;
   }
   .content{
     height: 70%;
@@ -437,7 +333,6 @@ button:hover #clip {
   --color: #afffff;
   color: var(--color);
   cursor: pointer;
-  /* use position: relative; so that BG is only for .btn */
   position: relative;
   isolation: isolate;
   display: inline-grid;
@@ -520,7 +415,11 @@ button:hover #clip {
   );
   transition: 200ms;
 }
-
+.twobutton{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 .btn2:where(:hover, :focus) {
   color: #fff;
 }
