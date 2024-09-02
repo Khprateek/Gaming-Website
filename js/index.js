@@ -65,7 +65,6 @@ window.addEventListener('resize', () => {
 createHexagons(); // Initial grid creation
 document.addEventListener('mousemove', handleMouseMove);
 
-
 // -----------------Bg glow ----------------------
 
 document.addEventListener('mousemove', (e) => {
